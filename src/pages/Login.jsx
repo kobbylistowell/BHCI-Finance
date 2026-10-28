@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
-import { ShieldCheck, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import "./Login.css";
 
 export default function Login() {
@@ -34,14 +34,16 @@ export default function Login() {
   return (
     <main className="login-page">
       <section className="login-card">
-        <div className="login-logo">
-          <ShieldCheck size={34} />
+        <div className="login-brand-wrap">
+          <div className="login-brand-mark">BHCI</div>
+          <p className="login-brand-sub">CHURCH MANAGEMENT</p>
         </div>
 
-        <p className="login-eyebrow">BREAKTHROUGH HOLINESS CHURCH</p>
-        <h1>Finance Management</h1>
+        <p className="login-eyebrow">Admin Sign In</p>
+        <h1>Admin Sign In</h1>
         <p className="login-subtitle">
-          Sign in to manage church finances securely.
+          Sign in to manage church members, events, announcements, and website
+          content.
         </p>
 
         <form onSubmit={handleLogin}>
@@ -84,7 +86,7 @@ export default function Login() {
           )}
 
           <button className="login-submit" type="submit" disabled={loading}>
-            {loading ? "Signing in..." : "Sign in"}
+            {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
@@ -98,9 +100,7 @@ export default function Login() {
           Forgot password?
         </button>
 
-        <p className="login-footer">
-          Authorized personnel only · BHCI Finance
-        </p>
+        <p className="login-footer">Authorized personnel only · BHCI</p>
       </section>
     </main>
   );

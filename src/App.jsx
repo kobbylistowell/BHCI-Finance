@@ -25,6 +25,7 @@ import Reports from "./pages/Reports";
 import FinancialAccounts from "./pages/FinancialAccounts";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import Welcome from "./pages/Welcome";
 import "./App.css";
 
 const navigation = [
@@ -325,6 +326,14 @@ function App() {
   if (!session) {
     const currentPath = window.location.pathname;
 
+    if (currentPath === "/" || currentPath === "/welcome") {
+      return <Welcome />;
+    }
+
+    if (currentPath === "/login") {
+      return <Login />;
+    }
+
     if (currentPath === "/forgot-password") {
       return <ForgotPassword />;
     }
@@ -594,14 +603,6 @@ function App() {
         </nav>
 
         <div className="sidebar-bottom">
-          <div className="church-badge">
-            <div className="church-avatar">B</div>
-            <div>
-              <strong>BHCI Headquarters</strong>
-              <p>Finance workspace</p>
-            </div>
-          </div>
-
           <button
             className={`nav-item ${
               activePage === "Settings" ? "nav-active" : ""
@@ -623,11 +624,6 @@ function App() {
             <LogOut size={19} />
             <span>{isSigningOut ? "Signing out..." : "Sign out"}</span>
           </button>
-
-          <div className="security-note">
-            <span className="status-dot" />
-            Secure finance workspace
-          </div>
         </div>
       </aside>
 
