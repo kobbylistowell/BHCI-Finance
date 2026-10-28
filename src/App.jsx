@@ -25,7 +25,6 @@ import Reports from "./pages/Reports";
 import FinancialAccounts from "./pages/FinancialAccounts";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
-import Welcome from "./pages/Welcome";
 import "./App.css";
 
 const navigation = [
@@ -325,10 +324,6 @@ function App() {
   // The login screen is separate from the dashboard layout.
   if (!session) {
     const currentPath = window.location.pathname;
-
-    if (currentPath === "/" || currentPath === "/welcome") {
-      return <Welcome />;
-    }
 
     if (currentPath === "/login") {
       return <Login />;
