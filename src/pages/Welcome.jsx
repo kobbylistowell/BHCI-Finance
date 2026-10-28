@@ -1,158 +1,180 @@
 
+import { Link } from "react-router-dom";
 import {
   Landmark,
-  ShieldCheck,
-  Wallet,
-  ReceiptText,
-  CalendarDays,
-  ChartNoAxesCombined,
   ArrowRight,
-  LockKeyhole,
+  ShieldCheck,
+  TrendingUp,
+  Wallet,
+  ChartNoAxesCombined,
+  ReceiptText,
 } from "lucide-react";
 import "./Welcome.css";
 
-const features = [
-  {
-    icon: Wallet,
-    title: "Income Management",
-    description:
-      "Keep church income records organized and easy to review.",
-  },
-  {
-    icon: ReceiptText,
-    title: "Expense Tracking",
-    description:
-      "Maintain clear records of church expenditure and payments.",
-  },
-  {
-    icon: CalendarDays,
-    title: "Sunday Records",
-    description:
-      "Organize weekly financial records and monthly summaries.",
-  },
-  {
-    icon: ChartNoAxesCombined,
-    title: "Financial Reports",
-    description:
-      "Review financial activity through structured reports.",
-  },
-];
-
-export default function Welcome() {
+function Welcome() {
   return (
     <main className="welcome-page">
       <header className="welcome-header">
-        <a className="welcome-brand" href="/" aria-label="BHCI Finance home">
-          <span className="welcome-logo">
-            <Landmark size={27} strokeWidth={1.7} />
+        <Link to="/" className="welcome-brand">
+          <span className="brand-icon">
+            <Landmark size={25} />
           </span>
 
-          <span className="welcome-brand-text">
-            <strong>BHCI</strong>
-            <small>FINANCE MANAGEMENT</small>
+          <span className="brand-text">
+            <strong>BHCI FINANCE</strong>
+            <small>FINANCIAL MANAGEMENT SYSTEM</small>
           </span>
-        </a>
+        </Link>
 
-        <a className="welcome-signin" href="/login">
-          Sign In <ArrowRight size={17} />
-        </a>
+        <span className="header-badge">
+          <ShieldCheck size={16} />
+          Secure Access
+        </span>
       </header>
 
-      <section className="welcome-hero">
-        <div className="welcome-hero-content">
-          <div className="welcome-eyebrow">
-            <span />
-            BREAKTHROUGH HOLINESS CHURCH INTERNATIONAL
-          </div>
+      <section className="welcome-content">
+        {/* LEFT: Animated finance illustration */}
+        <div className="finance-animation">
+          <div className="animation-glow" />
 
-          <h1>
-            Faithful stewardship.
-            <br />
-            <span>Transparent finances.</span>
-          </h1>
-
-          <p className="welcome-description">
-            A central place to manage church income, expenses,
-            Sunday records, and financial reports with clarity,
-            accountability, and confidence.
-          </p>
-
-          <div className="welcome-actions">
-            <a className="welcome-primary-button" href="/login">
-              <LockKeyhole size={18} />
-              Sign In to Your Account
-              <ArrowRight size={18} />
-            </a>
-          </div>
-
-          <div className="welcome-assurance">
-            <ShieldCheck size={19} />
-            <span>Authorized access to the finance workspace</span>
-          </div>
-        </div>
-
-        <div className="welcome-visual" aria-hidden="true">
-          <div className="welcome-orbit welcome-orbit-one" />
-          <div className="welcome-orbit welcome-orbit-two" />
-
-          <div className="welcome-emblem">
-            <div className="welcome-emblem-inner">
-              <Landmark size={76} strokeWidth={1.1} />
-              <span>BHCI</span>
-              <small>FAITHFUL STEWARDSHIP</small>
-            </div>
-          </div>
-
-          <div className="welcome-floating-card welcome-card-top">
-            <ShieldCheck size={20} />
-            <div>
-              <strong>Accountability</strong>
-              <small>Organized records</small>
-            </div>
-          </div>
-
-          <div className="welcome-floating-card welcome-card-bottom">
-            <ChartNoAxesCombined size={22} />
-            <div>
-              <strong>Financial clarity</strong>
-              <small>Reports and summaries</small>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="welcome-features">
-        <div className="welcome-section-heading">
-          <span>YOUR FINANCE WORKSPACE</span>
-          <h2>Everything organized in one place.</h2>
-          <p>
-            Tools designed to support responsible financial
-            record keeping across BHCI.
-          </p>
-        </div>
-
-        <div className="welcome-feature-grid">
-          {features.map(({ icon: Icon, title, description }) => (
-            <article className="welcome-feature-card" key={title}>
-              <div className="welcome-feature-icon">
-                <Icon size={23} strokeWidth={1.7} />
+          <div className="finance-card main-finance-card">
+            <div className="finance-card-heading">
+              <div>
+                <span className="card-eyebrow">
+                  FINANCIAL OVERVIEW
+                </span>
+                <h3>Church Finances</h3>
               </div>
 
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
-          ))}
+              <span className="finance-icon">
+                <Wallet size={22} />
+              </span>
+            </div>
+
+            <div className="chart-summary">
+              <span>Income &amp; Expenses</span>
+              <ChartNoAxesCombined size={18} />
+            </div>
+
+            <div className="animated-chart">
+              {[35, 55, 43, 72, 51, 85, 65, 95, 70, 82, 58, 76].map(
+                (height, index) => (
+                  <div
+                    key={index}
+                    className="chart-bar"
+                    style={{
+                      "--bar-height": `${height}%`,
+                      "--bar-delay": `${index * 0.08}s`,
+                    }}
+                  />
+                )
+              )}
+            </div>
+
+            <div className="chart-months">
+              <span>Jan</span>
+              <span>Mar</span>
+              <span>May</span>
+              <span>Jul</span>
+              <span>Sep</span>
+              <span>Dec</span>
+            </div>
+
+            <div className="finance-card-footer">
+              <span>
+                <span className="status-dot" />
+                Organized financial records
+              </span>
+              <ShieldCheck size={18} />
+            </div>
+          </div>
+
+          <div className="finance-card floating-card income-card">
+            <span className="floating-icon">
+              <TrendingUp size={19} />
+            </span>
+            <div>
+              <small>Income Tracking</small>
+              <strong>Clear records</strong>
+            </div>
+          </div>
+
+          <div className="finance-card floating-card expense-card">
+            <span className="floating-icon receipt-icon">
+              <ReceiptText size={19} />
+            </span>
+            <div>
+              <small>Expense Reports</small>
+              <strong>Better accountability</strong>
+            </div>
+          </div>
+
+          <div className="animation-caption">
+            <span className="caption-line" />
+            STEWARDSHIP • TRANSPARENCY • ACCOUNTABILITY
+          </div>
+        </div>
+
+        {/* RIGHT: Welcome message and sign-in button */}
+        <div className="welcome-message">
+          <span className="welcome-eyebrow">
+            BREAKTHROUGH HOLINESS CHURCH INTERNATIONAL
+          </span>
+
+          <h1>
+            Welcome to
+            <span> BHCI Finance.</span>
+          </h1>
+
+          <div className="welcome-divider" />
+
+          <p className="welcome-description">
+            Faithful stewardship. Clear accountability.
+          </p>
+
+          <p className="welcome-details">
+            Manage church income, expenses, and financial reports
+            in one organized place. Our finance platform helps
+            support transparency, accuracy, and responsible
+            stewardship of church resources.
+          </p>
+
+          <Link to="/login" className="welcome-signin-btn">
+            Sign In to Continue
+            <ArrowRight size={19} />
+          </Link>
+
+          <div className="welcome-security">
+            <ShieldCheck size={17} />
+            <span>Authorized users only</span>
+          </div>
+
+          <div className="welcome-values">
+            <div>
+              <span className="value-number">01</span>
+              <span>Transparency</span>
+            </div>
+            <div>
+              <span className="value-number">02</span>
+              <span>Accuracy</span>
+            </div>
+            <div>
+              <span className="value-number">03</span>
+              <span>Stewardship</span>
+            </div>
+          </div>
         </div>
       </section>
 
       <footer className="welcome-footer">
-        <div className="welcome-footer-brand">
-          <Landmark size={18} />
-          <span>BHCI Finance Management System</span>
-        </div>
-
-        <span>Stewardship • Transparency • Accountability</span>
+        <span>
+          © {new Date().getFullYear()} Breakthrough Holiness Church
+          International
+        </span>
+        <span>Faithful in stewardship.</span>
       </footer>
     </main>
   );
 }
+
+export default Welcome;

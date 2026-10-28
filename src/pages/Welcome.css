@@ -1,608 +1,716 @@
-:root {
-  --welcome-bg: #f5efe6;
-  --welcome-navy: #0d1321;
-  --welcome-navy-soft: #172338;
-  --welcome-gold: #d8b362;
-  --welcome-gold-soft: #f5e3b2;
-  --welcome-ivory: #fffdf9;
-  --welcome-mist: #eef2f7;
-  --welcome-text: #162130;
-  --welcome-muted: #58677a;
-  --welcome-line: rgba(19, 28, 40, 0.12);
-}
+
+/* ==============================
+   BHCI FINANCE WELCOME PAGE
+   Navy, white and gold theme
+================================ */
 
 .welcome-page {
+  --welcome-navy: #0d1321;
+  --welcome-navy-light: #151f33;
+  --welcome-gold: #d6b36a;
+  --welcome-white: #ffffff;
+  --welcome-muted: #a8b1c2;
+
   min-height: 100vh;
-  overflow-x: hidden;
-  color: var(--welcome-text);
+  padding: 0 7%;
+  display: flex;
+  flex-direction: column;
+  color: var(--welcome-white);
   background:
-    radial-gradient(circle at top left, rgba(216, 179, 98, 0.18), transparent 26%),
-    radial-gradient(circle at bottom right, rgba(24, 35, 56, 0.08), transparent 22%),
-    var(--welcome-bg);
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
+    radial-gradient(
+      ellipse at 15% 50%,
+      rgba(214, 179, 106, 0.09),
+      transparent 38%
+    ),
+    var(--welcome-navy);
+  font-family: inherit;
+  overflow: hidden;
 }
 
-.welcome-page * {
-  box-sizing: border-box;
-}
+/* Header */
 
 .welcome-header {
-  width: min(1280px, calc(100% - 48px));
-  min-height: 92px;
-  margin: 18px auto 0;
-  padding: 18px 26px;
+  min-height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  border: 1px solid rgba(17, 28, 42, 0.08);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.62);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 14px 32px rgba(17, 28, 42, 0.06);
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 .welcome-brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 13px;
-  color: var(--welcome-navy);
   text-decoration: none;
+  color: var(--welcome-white);
 }
 
-.welcome-logo {
-  width: 50px;
-  height: 50px;
+.brand-icon {
+  width: 48px;
+  height: 48px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(216, 179, 98, 0.5);
-  border-radius: 14px;
   color: var(--welcome-navy);
-  background: linear-gradient(135deg, rgba(216, 179, 98, 0.25), rgba(216, 179, 98, 0.08));
+  background: var(--welcome-gold);
+  border-radius: 12px;
 }
 
-.welcome-brand-text {
-  display: grid;
-  gap: 4px;
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.welcome-brand-text strong {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 25px;
-  letter-spacing: 1px;
-  color: var(--welcome-navy);
+.brand-text strong {
+  font-size: 16px;
+  letter-spacing: 1.5px;
 }
 
-.welcome-brand-text small {
-  color: var(--welcome-gold);
+.brand-text small {
+  color: var(--welcome-muted);
   font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 1.8px;
+  letter-spacing: 1.3px;
 }
 
-.welcome-signin {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 20px;
-  color: var(--welcome-navy);
-  border: 1px solid rgba(13, 19, 33, 0.12);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  background: var(--welcome-ivory);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.welcome-signin:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 20px rgba(13, 19, 33, 0.08);
-}
-
-.welcome-hero {
-  width: min(1280px, calc(100% - 48px));
-  min-height: 510px;
-  margin: 0 auto;
-  padding: 52px 0 28px;
-  display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
-  align-items: center;
-  gap: 34px;
-}
-
-.welcome-hero-content {
-  max-width: 700px;
-  padding: 18px 0;
-  animation: welcome-rise 0.7s ease both;
-}
-
-.welcome-eyebrow {
+.header-badge {
   display: flex;
   align-items: center;
-  gap: 11px;
-  margin-bottom: 20px;
-  color: var(--welcome-navy);
-  font-size: 10px;
-  font-weight: 800;
-  line-height: 1.8;
-  letter-spacing: 2.4px;
-  text-transform: uppercase;
-}
-
-.welcome-eyebrow span {
-  width: 32px;
-  height: 3px;
-  flex-shrink: 0;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--welcome-gold), rgba(216, 179, 98, 0.1));
-}
-
-.welcome-hero h1 {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(41px, 4.8vw, 72px);
-  font-weight: 600;
-  line-height: 0.96;
-  letter-spacing: -2.1px;
-  color: var(--welcome-navy);
-}
-
-.welcome-hero h1 span {
+  gap: 8px;
+  padding: 10px 14px;
   color: var(--welcome-gold);
-}
-
-.welcome-description {
-  max-width: 600px;
-  margin: 24px 0 30px;
-  color: var(--welcome-muted);
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.welcome-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.welcome-primary-button {
-  min-height: 56px;
-  padding: 0 22px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  color: var(--welcome-navy);
-  background: linear-gradient(135deg, var(--welcome-gold), #e8c778);
-  border: 1px solid rgba(12, 19, 33, 0.1);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 16px 28px rgba(216, 179, 98, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-}
-
-.welcome-primary-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 32px rgba(216, 179, 98, 0.35);
-  filter: brightness(1.02);
-}
-
-.welcome-assurance {
-  margin-top: 22px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--welcome-muted);
-  font-size: 13px;
-}
-
-.welcome-assurance svg {
-  color: var(--welcome-gold);
-  flex-shrink: 0;
-}
-
-.welcome-visual {
-  position: relative;
-  min-height: 440px;
-  display: grid;
-  place-items: center;
-}
-
-.welcome-orbit {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(11, 19, 31, 0.08);
-}
-
-.welcome-orbit-one {
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(circle, rgba(216, 179, 98, 0.1), transparent 70%);
-}
-
-.welcome-orbit-two {
-  width: 290px;
-  height: 290px;
-}
-
-.welcome-emblem {
-  width: 240px;
-  height: 240px;
-  display: grid;
-  place-items: center;
+  background: rgba(214, 179, 106, 0.07);
+  border: 1px solid rgba(214, 179, 106, 0.2);
   border-radius: 30px;
-  background: linear-gradient(180deg, rgba(18, 27, 40, 1), rgba(11, 19, 31, 0.96));
-  border: 1px solid rgba(216, 179, 98, 0.3);
-  box-shadow: 0 30px 60px rgba(17, 28, 42, 0.18);
-  animation: welcome-float 5s ease-in-out infinite;
+  font-size: 12px;
 }
 
-.welcome-emblem-inner {
+/* Main layout */
+
+.welcome-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 65px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(45px, 7vw, 110px);
+}
+
+/* Finance animation */
+
+.finance-animation {
+  position: relative;
+  min-width: 0;
+  padding: 35px 15px 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 9px;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.animation-glow {
+  position: absolute;
+  z-index: -1;
+  width: 75%;
+  aspect-ratio: 1;
+  background: rgba(214, 179, 106, 0.1);
+  filter: blur(80px);
+  border-radius: 50%;
+  animation: glow-pulse 5s ease-in-out infinite;
+}
+
+.finance-card {
+  background: linear-gradient(
+    145deg,
+    rgba(28, 41, 63, 0.98),
+    rgba(18, 28, 45, 0.98)
+  );
+  border: 1px solid rgba(214, 179, 106, 0.2);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+}
+
+.main-finance-card {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 440px);
+  padding: 27px;
+  animation: card-appear 0.9s ease both;
+}
+
+.finance-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.card-eyebrow {
+  color: var(--welcome-gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.finance-card-heading h3 {
+  margin: 9px 0 0;
+  font-size: clamp(17px, 2vw, 23px);
+  font-weight: 500;
+}
+
+.finance-icon {
+  width: 47px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--welcome-gold);
+  background: rgba(214, 179, 106, 0.1);
+  border-radius: 13px;
+}
+
+.chart-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 35px;
+  color: var(--welcome-muted);
+  font-size: 12px;
+}
+
+.chart-summary svg {
   color: var(--welcome-gold);
 }
 
-.welcome-emblem-inner svg {
-  width: 78px;
-  height: 78px;
+.animated-chart {
+  height: 145px;
+  margin-top: 18px;
+  padding: 0 3px;
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.welcome-emblem-inner span {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 26px;
-  letter-spacing: 5px;
+.chart-bar {
+  flex: 1;
+  height: var(--bar-height);
+  min-width: 4px;
+  background: linear-gradient(
+    180deg,
+    #f0d394,
+    #b38b43
+  );
+  border-radius: 5px 5px 0 0;
+  transform-origin: bottom;
+  animation:
+    bar-rise 0.8s ease-out var(--bar-delay) both,
+    bar-float 3s ease-in-out 1s infinite alternate;
+  transition: opacity 0.3s ease;
 }
 
-.welcome-emblem-inner small {
-  font-size: 7.4px;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.82);
+.chart-bar:nth-child(3n) {
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #aebbd0
+  );
 }
 
-.welcome-floating-card {
+.chart-months {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 11px;
+  color: #8995a9;
+  font-size: 10px;
+}
+
+.finance-card-footer {
+  margin-top: 25px;
+  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #dce2ec;
+  font-size: 11px;
+}
+
+.finance-card-footer > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.finance-card-footer > svg {
+  color: var(--welcome-gold);
+  flex-shrink: 0;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: #7bc99a;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(123, 201, 154, 0.4);
+}
+
+/* Floating cards */
+
+.floating-card {
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 15px 17px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(17, 28, 42, 0.07);
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(17, 28, 42, 0.08);
-  color: var(--welcome-navy);
+  animation: floating 4s ease-in-out infinite;
 }
 
-.welcome-floating-card svg {
-  color: var(--welcome-gold);
-}
-
-.welcome-floating-card div {
-  display: grid;
+.floating-card > div {
+  display: flex;
+  flex-direction: column;
   gap: 5px;
 }
 
-.welcome-floating-card strong {
-  color: var(--welcome-navy);
-  font-size: 12px;
-}
-
-.welcome-floating-card small {
+.floating-card small {
   color: var(--welcome-muted);
   font-size: 10px;
 }
 
-.welcome-card-top {
-  top: 40px;
-  right: 10px;
+.floating-card strong {
+  color: var(--welcome-white);
+  font-size: 12px;
+  font-weight: 500;
 }
 
-.welcome-card-bottom {
-  bottom: 40px;
-  left: 12px;
+.floating-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: var(--welcome-gold);
+  background: rgba(214, 179, 106, 0.12);
+  border-radius: 10px;
 }
 
-.welcome-features {
-  padding: 58px 7% 72px;
-  color: var(--welcome-navy);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.88));
+.income-card {
+  top: 8%;
+  right: -1%;
 }
 
-.welcome-section-heading {
-  max-width: 700px;
-  margin: 0 auto 32px;
+.expense-card {
+  bottom: 13%;
+  left: -3%;
+  animation-delay: -2s;
+}
+
+.receipt-icon {
+  color: #dce2ec;
+  background: rgba(220, 226, 236, 0.1);
+}
+
+.animation-caption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 35px;
+  color: #8995a9;
+  font-size: 9px;
+  letter-spacing: 1.5px;
   text-align: center;
 }
 
-.welcome-section-heading > span {
-  display: inline-block;
-  padding: 8px 12px;
-  border: 1px solid rgba(216, 179, 98, 0.35);
-  border-radius: 999px;
-  color: #8a6828;
-  background: rgba(216, 179, 98, 0.08);
+.caption-line {
+  width: 25px;
+  height: 1px;
+  background: var(--welcome-gold);
+}
+
+/* Welcome message */
+
+.welcome-message {
+  max-width: 550px;
+  animation: message-appear 0.9s ease 0.15s both;
+}
+
+.welcome-eyebrow {
+  color: var(--welcome-gold);
   font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.welcome-section-heading h2 {
-  margin: 16px 0 10px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(28px, 3vw, 42px);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.8px;
-}
-
-.welcome-section-heading p {
-  margin: 0;
-  color: var(--welcome-muted);
-  font-size: 15px;
-  line-height: 1.75;
-}
-
-.welcome-feature-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.welcome-feature-card {
-  padding: 26px 22px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(17, 28, 42, 0.08);
-  border-radius: 18px;
-  box-shadow: 0 14px 32px rgba(17, 28, 42, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.welcome-feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 22px 38px rgba(17, 28, 42, 0.08);
-}
-
-.welcome-feature-icon {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  color: #835d1b;
-  background: linear-gradient(180deg, rgba(216, 179, 98, 0.22), rgba(216, 179, 98, 0.12));
-  border: 1px solid rgba(216, 179, 98, 0.3);
-  border-radius: 14px;
-}
-
-.welcome-feature-card h3 {
-  margin: 20px 0 10px;
-  font-size: 16px;
-  color: var(--welcome-navy);
-}
-
-.welcome-feature-card p {
-  margin: 0;
-  color: var(--welcome-muted);
-  font-size: 12px;
+  font-weight: 700;
   line-height: 1.8;
+  letter-spacing: 2px;
 }
 
-.welcome-footer {
-  width: min(1280px, calc(100% - 48px));
-  min-height: 80px;
-  margin: 0 auto 18px;
-  padding: 20px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  color: rgba(255, 255, 255, 0.74);
-  background: linear-gradient(180deg, rgba(13, 19, 33, 0.98), rgba(13, 19, 33, 0.94));
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 20px;
-  font-size: 11px;
+.welcome-message h1 {
+  margin: 24px 0 22px;
+  font-size: clamp(40px, 4.5vw, 65px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -2px;
 }
 
-.welcome-footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.welcome-footer-brand svg {
+.welcome-message h1 span {
+  display: block;
   color: var(--welcome-gold);
 }
 
-@keyframes welcome-rise {
+.welcome-divider {
+  width: 65px;
+  height: 3px;
+  margin: 28px 0;
+  background: var(--welcome-gold);
+  border-radius: 5px;
+}
+
+.welcome-description {
+  margin: 0 0 15px;
+  color: var(--welcome-white);
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.welcome-details {
+  max-width: 480px;
+  margin: 0;
+  color: var(--welcome-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* Sign-in button */
+
+.welcome-signin-btn {
+  width: fit-content;
+  min-height: 54px;
+  margin-top: 32px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--welcome-navy);
+  background: var(--welcome-gold);
+  border: 1px solid var(--welcome-gold);
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.welcome-signin-btn:hover {
+  transform: translateY(-3px);
+  background: #e8ca87;
+  box-shadow: 0 12px 30px rgba(214, 179, 106, 0.17);
+}
+
+.welcome-signin-btn:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
+}
+
+.welcome-security {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 17px;
+  color: var(--welcome-muted);
+  font-size: 12px;
+}
+
+.welcome-security svg {
+  color: var(--welcome-gold);
+}
+
+/* Values row */
+
+.welcome-values {
+  margin-top: 43px;
+  padding-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.welcome-values > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #c5ccda;
+  font-size: 11px;
+}
+
+.value-number {
+  color: var(--welcome-gold);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Footer */
+
+.welcome-footer {
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  color: #8995a9;
+  font-size: 11px;
+}
+
+/* Animation keyframes */
+
+@keyframes bar-rise {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes bar-float {
+  from {
+    filter: brightness(0.9);
+  }
+
+  to {
+    filter: brightness(1.15);
+  }
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes card-appear {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(20px) scale(0.98);
   }
+
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-@keyframes welcome-float {
-  0%, 100% {
-    transform: translateY(0);
+@keyframes message-appear {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
   }
-  50% {
-    transform: translateY(-8px);
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-@media (max-width: 950px) {
-  .welcome-hero {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding-top: 40px;
+/* Tablet */
+
+@media (max-width: 1000px) {
+  .welcome-page {
+    padding: 0 5%;
   }
 
-  .welcome-hero-content {
-    max-width: 760px;
+  .welcome-content {
+    gap: 35px;
+    padding: 55px 0;
   }
 
-  .welcome-visual {
-    min-height: 360px;
+  .main-finance-card {
+    padding: 22px;
   }
 
-  .welcome-feature-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .floating-card {
+    padding: 12px;
+  }
+
+  .income-card {
+    right: -2%;
+  }
+
+  .expense-card {
+    left: -2%;
+  }
+
+  .welcome-values {
+    gap: 16px;
   }
 }
 
-@media (max-width: 560px) {
-  .welcome-header,
-  .welcome-hero,
-  .welcome-features,
-  .welcome-footer {
-    width: min(100% - 24px, 1280px);
+/* Mobile */
+
+@media (max-width: 700px) {
+  .welcome-page {
+    padding: 0 22px;
   }
 
   .welcome-header {
-    min-height: 76px;
-    padding: 14px 16px;
-    margin-top: 12px;
+    min-height: 80px;
   }
 
-  .welcome-logo {
+  .brand-icon {
     width: 42px;
     height: 42px;
   }
 
-  .welcome-brand-text strong {
-    font-size: 21px;
-  }
-
-  .welcome-brand-text small {
-    font-size: 7px;
-    letter-spacing: 1px;
-  }
-
-  .welcome-signin {
-    padding: 10px 12px;
-    font-size: 12px;
-  }
-
-  .welcome-hero {
-    padding: 36px 0 18px;
-  }
-
-  .welcome-eyebrow {
-    font-size: 8px;
-    letter-spacing: 1.2px;
-  }
-
-  .welcome-hero h1 {
-    font-size: clamp(37px, 10vw, 52px);
-    letter-spacing: -1px;
-  }
-
-  .welcome-description {
-    font-size: 14px;
-    line-height: 1.8;
-  }
-
-  .welcome-primary-button {
-    width: 100%;
-    padding: 0 12px;
-    gap: 9px;
-    font-size: 12px;
-  }
-
-  .welcome-visual {
-    min-height: 290px;
-  }
-
-  .welcome-orbit-one {
-    width: 260px;
-    height: 260px;
-  }
-
-  .welcome-orbit-two {
-    width: 210px;
-    height: 210px;
-  }
-
-  .welcome-emblem {
-    width: 175px;
-    height: 175px;
-    border-radius: 24px;
-  }
-
-  .welcome-emblem-inner svg {
-    width: 60px;
-    height: 60px;
-  }
-
-  .welcome-card-top {
-    top: 18px;
-    right: 0;
-  }
-
-  .welcome-card-bottom {
-    bottom: 14px;
-    left: 0;
-  }
-
-  .welcome-floating-card {
-    padding: 11px;
-    gap: 8px;
-  }
-
-  .welcome-floating-card strong {
-    font-size: 10px;
-  }
-
-  .welcome-floating-card small {
-    font-size: 9px;
-  }
-
-  .welcome-features {
-    padding: 42px 0 52px;
-  }
-
-  .welcome-feature-grid {
-    gap: 12px;
-  }
-
-  .welcome-feature-card {
-    padding: 18px 14px;
-  }
-
-  .welcome-feature-card h3 {
+  .brand-text strong {
     font-size: 13px;
   }
 
-  .welcome-feature-card p {
-    font-size: 11px;
+  .brand-text small {
+    max-width: 170px;
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .header-badge {
+    padding: 8px;
+    font-size: 0;
+  }
+
+  .header-badge svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .welcome-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 45px 0;
+  }
+
+  .finance-animation {
+    grid-row: 1;
+    padding: 28px 8px 20px;
+  }
+
+  .main-finance-card {
+    width: min(100%, 420px);
+    padding: 22px;
+  }
+
+  .animated-chart {
+    height: 115px;
+    gap: 7px;
+  }
+
+  .floating-card {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .floating-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .floating-card small {
+    font-size: 9px;
+  }
+
+  .floating-card strong {
+    font-size: 10px;
+  }
+
+  .income-card {
+    top: 1%;
+    right: -1%;
+  }
+
+  .expense-card {
+    bottom: 12%;
+    left: -1%;
+  }
+
+  .animation-caption {
+    margin-top: 30px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .welcome-message {
+    grid-row: 2;
+  }
+
+  .welcome-message h1 {
+    font-size: clamp(39px, 10vw, 55px);
+    letter-spacing: -1.5px;
+  }
+
+  .welcome-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+
+  .welcome-details {
+    font-size: 14px;
+  }
+
+  .welcome-values {
+    margin-top: 32px;
+    gap: 16px;
+  }
+
+  .welcome-values > div {
+    font-size: 10px;
   }
 
   .welcome-footer {
-    align-items: flex-start;
+    min-height: 75px;
     flex-direction: column;
-    padding: 20px 18px;
-    line-height: 1.7;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 15px 0;
+    font-size: 10px;
   }
 }
+
+/* Respect reduced-motion preferences */
 
 @media (prefers-reduced-motion: reduce) {
   .welcome-page *,
   .welcome-page *::before,
   .welcome-page *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
