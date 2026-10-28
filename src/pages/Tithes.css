@@ -1,0 +1,620 @@
+:root {
+  --bhci-navy: #0d1321;
+  --bhci-navy-soft: #172033;
+  --bhci-gold: #d4af37;
+  --bhci-gold-deep: #a9812a;
+  --bhci-gold-soft: #f7f0e1;
+  --bhci-cream: #f0ebd8;
+  --bhci-cream-soft: #f8f5ef;
+  --bhci-muted: #788194;
+  --bhci-border: #e7e9ee;
+  --bhci-surface: #ffffff;
+  --bhci-soft: #f7f8fa;
+  --bhci-success: #237343;
+  --bhci-success-bg: #eaf7ef;
+  --bhci-danger: #a52c2c;
+  --bhci-danger-bg: #fff1f1;
+}
+
+.tithes-page {
+  min-width: 0;
+  padding: 30px;
+  color: var(--bhci-navy);
+  background: transparent;
+  font-family: "DM Sans", "Segoe UI", Arial, sans-serif;
+}
+
+.tithes-heading,
+.tithes-modal-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tithes-heading {
+  margin-bottom: 28px;
+}
+
+.tithes-eyebrow {
+  color: var(--bhci-gold-deep);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.tithes-heading h1 {
+  margin: 8px 0;
+  color: var(--bhci-navy);
+  font-size: clamp(25px, 3vw, 32px);
+  letter-spacing: -0.7px;
+}
+
+.tithes-heading p {
+  margin: 0;
+  color: var(--bhci-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.tithes-primary-btn,
+.tithes-secondary-btn,
+.tithes-danger-btn,
+.tithes-icon-btn,
+.tithes-void-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tithes-primary-btn {
+  padding: 12px 17px;
+  border: 1px solid var(--bhci-gold);
+  background: var(--bhci-gold);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tithes-primary-btn:hover {
+  border-color: var(--bhci-gold-deep);
+  background: var(--bhci-gold-deep);
+}
+
+.tithes-secondary-btn {
+  padding: 11px 16px;
+  border: 1px solid var(--bhci-border);
+  background: #fff;
+  color: var(--bhci-navy-soft);
+  font-size: 13px;
+}
+
+.tithes-secondary-btn:hover {
+  border-color: var(--bhci-gold);
+  background: var(--bhci-cream-soft);
+}
+
+.tithes-danger-btn {
+  padding: 11px 16px;
+  border: 1px solid var(--bhci-danger);
+  background: var(--bhci-danger);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tithes-danger-btn:hover {
+  background: #8d2b2d;
+}
+
+.tithes-icon-btn {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid var(--bhci-border);
+  background: #fff;
+  color: var(--bhci-navy-soft);
+}
+
+.tithes-icon-btn:hover {
+  background: var(--bhci-soft);
+}
+
+.tithes-primary-btn:disabled,
+.tithes-secondary-btn:disabled,
+.tithes-danger-btn:disabled,
+.tithes-icon-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tithes-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+  margin-bottom: 24px;
+}
+
+.tithes-stat-card {
+  min-width: 0;
+  padding: 21px;
+  border: 1px solid var(--bhci-border);
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(13, 19, 33, 0.025);
+}
+
+.tithes-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 16px;
+  border-radius: 11px;
+  background: var(--bhci-gold-soft);
+  color: var(--bhci-gold-deep);
+}
+
+.tithes-stat-card span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--bhci-muted);
+  font-size: 12px;
+}
+
+.tithes-stat-card strong {
+  color: var(--bhci-navy);
+  font-size: clamp(19px, 2vw, 25px);
+  overflow-wrap: anywhere;
+}
+
+.tithes-panel {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--bhci-border);
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(23, 32, 51, 0.025);
+}
+
+.tithes-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 19px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.tithes-search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 10px;
+  min-width: 180px;
+  padding: 0 12px;
+  border: 1px solid var(--bhci-border);
+  border-radius: 9px;
+  color: var(--bhci-muted);
+  background: #fff;
+}
+
+.tithes-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--bhci-navy);
+  font: inherit;
+  font-size: 13px;
+}
+
+.tithes-search input:focus {
+  box-shadow: none;
+}
+
+.tithes-date-filter {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--bhci-muted);
+  font-size: 12px;
+}
+
+.tithes-date-filter input {
+  width: 135px;
+  min-width: 0;
+  padding: 10px 7px;
+  border: 1px solid var(--bhci-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--bhci-navy-soft);
+  font: inherit;
+  font-size: 12px;
+}
+
+.tithes-results-summary {
+  padding: 12px 20px;
+  border-bottom: 1px solid #edf0f4;
+  color: var(--bhci-muted);
+  font-size: 12px;
+}
+
+.tithes-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tithes-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tithes-table th {
+  padding: 15px 18px;
+  background: #fafbfc;
+  color: var(--bhci-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tithes-table td {
+  padding: 17px 18px;
+  border-top: 1px solid #edf0f4;
+  color: #536174;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.tithes-table td strong {
+  color: var(--bhci-navy);
+}
+
+.tithes-table td small {
+  display: block;
+  margin-top: 5px;
+  color: #8b95a4;
+  font-size: 11px;
+  white-space: normal;
+}
+
+.tithes-amount {
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.tithes-row-voided td {
+  background: #fcfaf9;
+  color: #9299a5;
+}
+
+.tithes-row-voided td strong {
+  color: #7c8491;
+}
+
+.tithes-row-voided .tithes-amount strong {
+  text-decoration: line-through;
+}
+
+.tithes-status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tithes-status.recorded {
+  background: var(--bhci-success-bg);
+  color: var(--bhci-success);
+}
+
+.tithes-status.voided {
+  background: var(--bhci-danger-bg);
+  color: var(--bhci-danger);
+}
+
+.tithes-void-reason {
+  max-width: 180px;
+  overflow-wrap: anywhere;
+}
+
+.tithes-action-muted {
+  color: #9299a5;
+  font-size: 11px;
+}
+
+.tithes-void-btn {
+  padding: 7px 10px;
+  border: 1px solid #efcaca;
+  background: #fff;
+  color: var(--bhci-danger);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tithes-void-btn:hover {
+  background: var(--bhci-danger-bg);
+}
+
+.tithes-empty {
+  padding: 45px 20px !important;
+  text-align: center;
+  color: #8b95a4 !important;
+}
+
+.tithes-empty svg {
+  display: block;
+  margin: 0 auto 12px;
+  color: var(--bhci-gold-deep);
+}
+
+.tithes-empty strong,
+.tithes-empty span {
+  display: block;
+  margin-top: 8px;
+}
+
+.tithes-alert {
+  margin-bottom: 18px;
+  padding: 13px 15px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.tithes-alert-error {
+  border-color: #f1c6c6;
+  background: #fff2f2;
+  color: var(--bhci-danger);
+}
+
+.tithes-alert-success {
+  border-color: #c5e7d1;
+  background: #effaf3;
+  color: #236b3b;
+}
+
+.tithes-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(12, 19, 33, 0.62);
+}
+
+.tithes-modal {
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  padding: 25px;
+  border: 1px solid var(--bhci-border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+}
+
+.tithes-modal-heading {
+  margin-bottom: 24px;
+}
+
+.tithes-modal-heading h2 {
+  margin: 7px 0 0;
+  color: var(--bhci-navy);
+  font-size: 22px;
+}
+
+.tithes-form {
+  display: grid;
+  gap: 17px;
+}
+
+.tithes-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--bhci-navy-soft);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tithes-form input,
+.tithes-form select,
+.tithes-form textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid var(--bhci-border);
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: var(--bhci-navy);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.tithes-form input:focus,
+.tithes-form select:focus,
+.tithes-form textarea:focus {
+  border-color: var(--bhci-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.tithes-form textarea {
+  resize: vertical;
+}
+
+.tithes-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.tithes-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.tithes-void-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 14px;
+  border: 1px solid #f1d5d5;
+  border-radius: 10px;
+  background: #fff5f5;
+  color: var(--bhci-danger);
+}
+
+.tithes-void-warning svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tithes-void-warning p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.tithes-void-summary {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid var(--bhci-border);
+  border-radius: 10px;
+  background: var(--bhci-soft);
+}
+
+.tithes-void-summary span {
+  color: #536174;
+  font-size: 13px;
+}
+
+.tithes-void-summary strong {
+  color: var(--bhci-navy);
+  font-size: 22px;
+}
+
+.tithes-void-summary small {
+  color: #8b95a4;
+  font-size: 12px;
+}
+
+@media (max-width: 1000px) {
+  .tithes-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .tithes-search {
+    flex-basis: 100%;
+  }
+
+  .tithes-date-filter {
+    flex: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .tithes-page {
+    padding: 20px 15px;
+  }
+
+  .tithes-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .tithes-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tithes-stat-card {
+    padding: 17px;
+  }
+
+  .tithes-stat-icon {
+    margin-bottom: 10px;
+  }
+
+  .tithes-toolbar {
+    align-items: stretch;
+    padding: 14px;
+  }
+
+  .tithes-search {
+    flex-basis: 100%;
+    min-width: 0;
+  }
+
+  .tithes-date-filter {
+    align-items: flex-start;
+    flex: 1 1 calc(50% - 8px);
+    flex-direction: column;
+  }
+
+  .tithes-date-filter input {
+    width: 100%;
+  }
+
+  .tithes-icon-btn {
+    align-self: flex-end;
+  }
+
+  .tithes-table th,
+  .tithes-table td {
+    padding: 13px 12px;
+  }
+
+  .tithes-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tithes-modal {
+    padding: 19px;
+  }
+}
+
+@media (max-width: 420px) {
+  .tithes-heading h1 {
+    font-size: 25px;
+  }
+
+  .tithes-primary-btn {
+    width: 100%;
+  }
+
+  .tithes-form-actions > button {
+    flex: 1;
+  }
+}
